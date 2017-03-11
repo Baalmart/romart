@@ -1,0 +1,25 @@
+{
+  "name": "bot-challenge",
+  "version": "1.0.0",
+  "description": "facebook bot app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baalmart/romar.git"
+  },
+  "author": "martin and romalice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baalmart/romar/issues"
+  },
+  "homepage": "https://github.com/Baalmart/romar#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
