@@ -76,7 +76,7 @@ app.post('/webhook', function (req, res)
                       console.log("Bot received message written event");
                 else
                  console.log("Bot received message " + event.message.text);
-                  //functs.receivedMessage(event);
+                  functs.receivedMessage(event);
             }
             else  if (event.delivery)
               console.log("Bot received delivery event");
