@@ -1,7 +1,7 @@
 const request = require('request')
 
 const PAGE_ACCESS_TOKEN = "EAAXmVa3kCDoBADwfRVpxEZBRlzR8KAwoYAhrUHFP5ZANIExq80SzVfHbm0VZC2gnPmlHzzCy7ZBrZCJ7MCE9yBa4ZAEIv3CeEcgYFZBXRsFc6ItI1i69umPO2iZCpobTO12CAJfY8hH7VFI10NUNHQMUztxknBATvuczKbGDfoY6NAZDZD"
-const context
+const context=""
 
 module.exports = {
 receivedMessage: function(event)
