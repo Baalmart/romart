@@ -57,8 +57,7 @@ getResponse: function(message)
         rsp = "Give me a keyword (i.e: scores, announcements, events, tuition balance)"
     }
     if (message.text == "scores"){
-        // rsp = "What is your student ID?" //TODO
-        rsp = "Okay Here are your scores: Maths = 64, English = 34, Chemistry = 56, French = 70."
+        rsp = "What is your student ID?" //TODO
     }
     //student id
      if (message.text == "1234"){
