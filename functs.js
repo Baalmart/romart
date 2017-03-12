@@ -39,16 +39,37 @@ processMessage: function(fromId, myId, timestamp, message)
 
 getResponse: function(message)
 {
+    var wlcm = "Hi there, would you like some school information? Give me a keyword (i.e: scores, announcements, events, tuition balance)"
+    var bye = "Thank you for checking us out. See you next time."
+
     var rsp =  message.text;
 
-    if (message.text == "structured")
-        rsp = "structured"
-    if (message.text == "Knock Knock")
-        rsp = "Who's There?"
-    if (message.text == "greeting")
-        rsp = "I am fine. How are you?"
-    if (message.text == "diabetes")
-        rsp =  "what type of diabetes do you have?"
+    if (message.text == "start"){
+        rsp = wlcm
+    }
+    if (message.text == "thanks" || message.text == "thank you"){
+        rsp = bye
+    }
+    if (message.text == "no"){
+        rsp = bye
+    }
+    if (message.text == "yes"){
+        rsp = "Give me a keyword (i.e: scores, announcements, events, tuition balance)"
+    }
+    if (message.text == "scores"){
+        // rsp = "What is your student ID?" //TODO
+        rsp = "Okay Here are your scores: Maths = 64, English = 34, Chemistry = 56, French = 70."
+    }
+    //student id
+     if (message.text == "1234"){
+        rsp = "Okay! Here are your scores: Maths = 64, English = 34, Chemistry = 56, French = 70. Would you like anything else?"
+    }
+    if (message.text == "events"){
+        rsp =  "Parents meeting: 12th April 2017, 10:30 am - 1:00 pm. Cultural night: 15th April 2017, 6:30 am - 8:30 pm. Do you need anything else?"
+    }
+    if (message.text == "announcements"){
+        rsp = "Parents meeting: 12th April 2017, 10:30 am - 1:00 pm. Cultural night: 15th April 2017, 6:30 am - 8:30 pm. Do you need anything else?"
+    }
     return rsp;
 },
 
