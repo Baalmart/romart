@@ -1,6 +1,7 @@
 const request = require('request')
 
 const PAGE_ACCESS_TOKEN = "EAAXmVa3kCDoBADwfRVpxEZBRlzR8KAwoYAhrUHFP5ZANIExq80SzVfHbm0VZC2gnPmlHzzCy7ZBrZCJ7MCE9yBa4ZAEIv3CeEcgYFZBXRsFc6ItI1i69umPO2iZCpobTO12CAJfY8hH7VFI10NUNHQMUztxknBATvuczKbGDfoY6NAZDZD"
+const context
 
 module.exports = {
 receivedMessage: function(event)
@@ -9,6 +10,11 @@ receivedMessage: function(event)
     var myId = event.recipient.id;
     var timestamp = event.timestamp;
     var message = event.message;
+
+    //verify context
+    if(context=="scores"){
+        console.log("Context is .[SCORES]. Value: "+message.text);
+    }
 
     console.log("Page %d received message from user %d." , myId, fromId);
     console.log("    Message: " + JSON.stringify(message));
@@ -44,20 +50,21 @@ getResponse: function(message)
 
     var rsp = "What do you mean by \"" + message.text + "\"? Give me a keyword (i.e: scores, announcements, events, tuition balance)";
 
-    if (message.text == "start"){
+    if (message.text == "start" || message.text == "hey" ){
         rsp = wlcm
     }
     if (message.text == "thanks" || message.text == "thank you"){
         rsp = bye
     }
-    if (message.text == "no"){
+    if (message.text == "no" || message.text =="no thanks" || message.text =="no thank you"){
         rsp = bye
     }
     if (message.text == "yes"){
         rsp = "Give me a keyword (i.e: scores, announcements, events, tuition balance)"
     }
     if (message.text == "scores"){
-        rsp = "What is your student ID?" //TODO
+        context = "scores"
+        rsp = "What is the student ID?" //TODO
     }
     //student id
      if (message.text == "1234"){
@@ -68,6 +75,9 @@ getResponse: function(message)
     }
     if (message.text == "announcements"){
         rsp = "Parents meeting: 12th April 2017, 10:30 am - 1:00 pm. Cultural night: 15th April 2017, 6:30 am - 8:30 pm. Do you need anything else?"
+    }
+    if(message.text=="tuition" || message.text=="balance" || message.text=="tuition balance"){
+        rsp = "The tuition fee for this year is RWF 120,000. You have already paid RWF 100,000. Your balance is RWF 20,000 which must be paid by June 30th, 2017. Would you like anything else?"
     }
     return rsp;
 },
