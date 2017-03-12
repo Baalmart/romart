@@ -42,7 +42,7 @@ getResponse: function(message)
     var wlcm = "Hi there, would you like some school information? Give me a keyword (i.e: scores, announcements, events, tuition balance)"
     var bye = "Thank you for checking us out. See you next time."
 
-    var rsp =  message.text;
+    var rsp = "What do you mean by \"" + message.text + "\"? Give me a keyword (i.e: scores, announcements, events, tuition balance)";
 
     if (message.text == "start"){
         rsp = wlcm
